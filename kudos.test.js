@@ -8,6 +8,7 @@ test('test getKudosForUser', () => {
   expect(kudos.getKudosForUser(200)).toEqual(['SUPER', 'SUPER']);
   expect(kudos.getKudosForUser(300)).toEqual(['SUPER', 'SUPER', 'SUPER']);
   expect(kudos.getKudosForUser(80)).toEqual(['GREAT', 'GOOD', 'NICE']);
+  expect(kudos.getKudosForUser(185)).toEqual(['SUPER', 'GREAT', 'GOOD', 'NICE', 'OK']);
 });
 
 test('test getKudosValueMessageForUser', () => {
@@ -25,4 +26,6 @@ test('test getKudosValueMessageForUser', () => {
     .toEqual('Você recebeu setenta e cinco reais em retorno aos kudos SUPER, SUPER, SUPER!');
   expect(kudos.getKudosValueMessageForUser(kudos.getKudosForUser(80)))
     .toEqual('Você recebeu vinte e oito reais em retorno aos kudos GREAT, GOOD, NICE!');
+  expect(kudos.getKudosValueMessageForUser(kudos.getKudosForUser(185)))
+    .toEqual('Você recebeu cinquenta e cinco reais em retorno aos kudos SUPER, GREAT, GOOD, NICE, OK!');
 });
